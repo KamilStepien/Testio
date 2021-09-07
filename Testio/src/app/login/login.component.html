@@ -1,6 +1,6 @@
 <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="login()" >
 <div class="container-fluid ">
-  <div *ngIf="invalidLogin" class="alert alert-primary" role="alert">
+  <div *ngIf="auth.isLogged()" class="alert alert-primary" role="alert">
     Invalid login or password
   </div>
   <div class="mb-3">

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { LoginModel } from '../models/auth/login.model';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class LoginComponent {
 
   invalidLogin:boolean
 
-  constructor(private router: Router, private http: HttpClient, private fb: FormBuilder ) { }
+  constructor(private fb: FormBuilder, public auth:AuthService ) { }
 
   loginForm = this.fb.group(
     {
@@ -26,23 +28,15 @@ export class LoginComponent {
 
   login()
   {
-    const credentials = {
-      'username': this.loginForm.value.username,
-      'password': this.loginForm.value.password
+    let login: LoginModel =
+    {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password
     }
 
-    this.http.post("https://localhost:5001/api/auth/login", credentials)
-    .subscribe(response => {
-      const token = (<any> response).token;
-      localStorage.setItem("jwt", token);
-      this.invalidLogin = false;
-      this.router.navigate(["/"]);
-    },
-    err =>
-    {
-      this.invalidLogin = true;
-    })
-
+    this.auth.login(login);
   }
+
+
 
 }

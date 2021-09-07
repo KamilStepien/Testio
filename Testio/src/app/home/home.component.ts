@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -9,11 +9,6 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent{
 
-  constructor(private router: Router) { }
-  
-  logOut()
-  {
-    localStorage.removeItem("jwt");
-    this.router.navigate(["/login"])
-  }
+  constructor(public auth:AuthService) { }
+
 }
