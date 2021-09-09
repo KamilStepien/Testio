@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
+import { RegisterComponent } from './register/register.component';
 
 export function tokenGetter()
 {
@@ -20,6 +21,7 @@ export function tokenGetter()
     AppComponent,
     LoginComponent,
     HomeComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

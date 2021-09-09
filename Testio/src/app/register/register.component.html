@@ -1,0 +1,25 @@
+<form class="form-signin" [formGroup]="registerForm" (ngSubmit)="register()">
+
+  <div class="container-fluid ">
+    <h4>Rejestracja</h4>
+    <div *ngIf="auth.isResponseMessage()" class="alert alert-primary" role="alert">
+      {{auth.responseMessage()}}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Login</label>
+      <input type="text" class="form-control" formControlName="login">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Hasło</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="text" class="form-control" formControlName="email">
+    </div>
+    <div class="button-box">
+      <button type="submit" class="btn btn-primary mb-1" [disabled]="registerForm.invalid">Zarejestruj się</button>
+      <button type="button" class="btn btn-secondary mb-1" [routerLink]="'/login'">Logowanie</button>
+    </div>
+  </div>
+</form>
