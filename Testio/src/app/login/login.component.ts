@@ -20,21 +20,20 @@ export class LoginComponent {
 
   loginForm = this.fb.group(
     {
-      username: ['',Validators.required],
-      email: ['',Validators.email],
-      password: ['', [Validators.minLength(8),Validators.required]]
+      login: ['',Validators.required],
+      password: ['', Validators.required]
     }
   )
 
   login()
   {
-    let login: LoginModel =
+    let user: LoginModel =
     {
-      username: this.loginForm.value.username,
+      login: this.loginForm.value.login,
       password: this.loginForm.value.password
     }
 
-    this.auth.login(login);
+    this.auth.login(user);
   }
 
 

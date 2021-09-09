@@ -1,20 +1,20 @@
-<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="login()" >
-<div class="container-fluid ">
-  <div *ngIf="auth.isLogged()" class="alert alert-primary" role="alert">
-    Invalid login or password
+<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="container-fluid ">
+    <h4>Logowanie</h4>
+    <div *ngIf="auth.isLogged()" class="alert alert-primary" role="alert">
+      Niepoprawne hasło lub login
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Login</label>
+      <input type="text" class="form-control" formControlName="login">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <div class="button-box">
+      <button type="submit" class="btn btn-primary mb-1" [disabled]="loginForm.invalid">Zaloguj się</button>
+      <button type="button" class="btn btn-secondary mb-1" [routerLink]="'/register'">Rejestracja</button>
+    </div>
   </div>
-  <div class="mb-3">
-    <label class="form-label">Login</label>
-    <input type="text" class="form-control" formControlName="username">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Email address</label>
-    <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Password</label>
-    <input type="password" class="form-control" formControlName="password">
-  </div>
-  <button type="submit" class="btn btn-primary" [disabled] ="loginForm.invalid" >Login In</button>
-</div>
 </form>
