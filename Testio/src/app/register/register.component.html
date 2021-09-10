@@ -1,25 +1,36 @@
-<form class="form-signin" [formGroup]="registerForm" (ngSubmit)="register()">
-
-  <div class="container-fluid ">
-    <h4>Rejestracja</h4>
-    <div *ngIf="auth.isResponseMessage()" class="alert alert-primary" role="alert">
-      {{auth.responseMessage()}}
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <div class="form-card">
+    <div class="card-header">
+      <div class="header-title">
+        Rejestracja
+      </div>
+      <div *ngIf="auth.isResponseMessage()" class="header-alert">
+        {{auth.responseMessage()}}
+      </div>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Login</label>
-      <input type="text" class="form-control" formControlName="login">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Hasło</label>
-      <input type="password" class="form-control" formControlName="password">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input type="text" class="form-control" formControlName="email">
-    </div>
-    <div class="button-box">
-      <button type="submit" class="btn btn-primary mb-1" [disabled]="registerForm.invalid">Zarejestruj się</button>
-      <button type="button" class="btn btn-secondary mb-1" [routerLink]="'/login'">Logowanie</button>
+    <div class="card-body">
+      <mat-form-field class="body-row">
+        <mat-label>Login</mat-label>
+        <input matInput type="text" formControlName = "login">
+      </mat-form-field>
+      <div class="body-row">
+        <mat-form-field class="body-row">
+          <mat-label>Hasło</mat-label>
+          <input matInput type="password" formControlName = "password">
+        </mat-form-field>
+      </div>
+      <div class="body-row">
+        <mat-form-field class="body-row">
+          <mat-label>Email</mat-label>
+          <input matInput type="text" formControlName = "email">
+        </mat-form-field>
+      </div>
+      <div class="body-row">
+        <div class="button-box">
+          <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Zarejestruj się</button>
+          <button mat-raised-button type="button" [routerLink]="'/login'">Logowanie</button>
+        </div>
+      </div>
     </div>
   </div>
 </form>
