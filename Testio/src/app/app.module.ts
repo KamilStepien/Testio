@@ -10,6 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './register/register.component';
+import { TaskModuleComponent } from './task-module/task-module.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 export function tokenGetter()
 {
@@ -20,14 +24,17 @@ export function tokenGetter()
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
-    RegisterComponent
+    HomeComponent,
+    RegisterComponent,
+    TaskModuleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatButtonModule,
+    MatInputModule,
     JwtModule.forRoot({
       config:
       {
@@ -35,7 +42,8 @@ export function tokenGetter()
         allowedDomains: ['localhost:5001'],
         disallowedRoutes: []
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
