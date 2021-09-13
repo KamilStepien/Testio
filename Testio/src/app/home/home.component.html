@@ -1,3 +1,9 @@
-<p>You are logged in</p>
-<button type="submit" class="btn btn-primary" (click) = "auth.logOut()">Log out</button>
+<div class="nav">
+  <p>Jesteś zalogowany</p>
+  <button type="submit" mat-raised-button  (click) = "auth.logOut()">Wyloguj się</button>
+
+</div>
+  <div class="body">
+    <app-task-module></app-task-module>
+  </div>
 
