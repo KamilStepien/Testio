@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TaskAddModel } from 'src/app/models/task/task.model';
 import { TaskService } from 'src/app/services/task.service';
@@ -11,7 +11,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 })
 export class DialogAddTaskComponent{
 
-  constructor(private fb:FormBuilder, private taskService:TaskService,  public dialogRef: MatDialogRef<DialogAddTaskComponent>,)
+  constructor(private fb:FormBuilder, private taskService:TaskService,  public dialogRef: MatDialogRef<DialogAddTaskComponent>)
   {
 
   }
@@ -23,14 +23,12 @@ export class DialogAddTaskComponent{
     }
   )
 
-  addTask()
-  {
+  closeDialog() {
     let model:TaskAddModel =
     {
       name : this.addTaskFrom.value.nameTask,
       description : this.addTaskFrom.value.descriptionTask
     }
-    this.taskService.addTask(model);
-    this.dialogRef.close();
+    this.dialogRef.close(model);
   }
 }

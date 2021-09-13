@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TaskService } from '../services/task.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { TaskStatusEnum } from '../models/task/taskEnums';
-import { TaskEditStatusModel } from '../models/task/task.model';
+import { TaskAddModel, TaskEditStatusModel } from '../models/task/task.model';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
 
@@ -38,16 +38,11 @@ export class TaskModuleComponent {
     }
   }
 
-  refreshTasks()
-  {
-    this.taskService.refreshTasks();
-  }
-
   openAddTaskDialog() {
     const dialogRef = this.dialog.open(DialogAddTaskComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.taskService.addTask(result);
     });
   }
 
