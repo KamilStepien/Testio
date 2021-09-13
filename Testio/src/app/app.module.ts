@@ -14,6 +14,10 @@ import { TaskModuleComponent } from './task-module/task-module.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { TaskService } from './services/task.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogAddTaskComponent } from './task-module/dialog-add-task/dialog-add-task.component';
 
 export function tokenGetter()
 {
@@ -26,7 +30,8 @@ export function tokenGetter()
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    TaskModuleComponent
+    TaskModuleComponent,
+    DialogAddTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,8 @@ export function tokenGetter()
     HttpClientModule,
     MatButtonModule,
     MatInputModule,
+    DragDropModule,
+    MatDialogModule,
     JwtModule.forRoot({
       config:
       {
@@ -45,7 +52,7 @@ export function tokenGetter()
     }),
     BrowserAnimationsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
