@@ -18,25 +18,11 @@ export class TaskService {
    }
 
 
-  public GetTasks ()
-  {
-    return this._tasks;
-  }
+  public GetTasks = ():TaksModel[]  => this._tasks;
+  public GetDoneTasks = ():TaksModel[] => this._doneTask
+  public GetCreateTasks = ():TaksModel[] => this._createTask;
+  public GetInProgressTasks = ():TaksModel[] => this._inProgressTask;
 
-  public GetDoneTasks ():TaksModel[]
-  {
-    return this._doneTask;
-  }
-
-  public GetCreateTasks ():TaksModel[]
-  {
-    return this._createTask;
-  }
-
-  public GetInProgressTasks ():TaksModel[]
-  {
-    return this._inProgressTask;
-  }
 
   public editStatusTask(model:TaskEditStatusModel)
   {
