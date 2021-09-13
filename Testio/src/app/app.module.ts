@@ -52,7 +52,7 @@ export function tokenGetter()
     }),
     BrowserAnimationsModule
   ],
-  providers: [AuthService, TaskService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
