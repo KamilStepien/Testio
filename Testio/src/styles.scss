@@ -6,8 +6,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .form-card
 {
-  padding: 20px 20px;
-
   .card-header
   {
     text-align: center;
@@ -31,8 +29,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .body-row
     {
       width: 100%;
+
+      textarea
+      {
+        min-height: 50px;
+        max-height: 100px;
+      }
       .button-box
       {
+        display: flex;
+        justify-content: center;
         button
         {
           margin: 0 5px;
