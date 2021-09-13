@@ -1,0 +1,51 @@
+<button mat-raised-button color="primary" id="addTask-button" (click)="openAddTaskDialog()">Dodaj zadanie</button>
+<div class="continer">
+  <div class="drag-column">
+    <div class="section-heading">Stworzne</div>
+    <div [id]="TaskStatusEnum.Create" cdkDropList #pendingList="cdkDropList"
+      [cdkDropListData]="taskService.GetCreateTasks()" [cdkDropListConnectedTo]="[doneList,reviewList]"
+      class="item-list" (cdkDropListDropped)="drop($event)">
+      <div class="task-card" *ngFor="let task of taskService.GetCreateTasks()" cdkDrag>
+        <div class="task-title">
+          <button mat-raised-button class ="task-delete-button" color ="primary" (click)="taskService.deleteTask(task.id)">X</button>
+          {{task.name}}
+        </div>
+        <div class="task-description">
+          {{task.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="drag-column">
+    <div class="section-heading">Podjęte</div>
+    <div [id]="TaskStatusEnum.InProgress" cdkDropList #doneList="cdkDropList"
+      [cdkDropListData]="taskService.GetInProgressTasks()" [cdkDropListConnectedTo]="[pendingList,reviewList]"
+      class="item-list" (cdkDropListDropped)="drop($event)">
+      <div class="task-card" *ngFor="let task of taskService.GetInProgressTasks()" cdkDrag>
+        <div class="task-title">
+          <button mat-raised-button class ="task-delete-button" color ="primary" (click)="taskService.deleteTask(task.id)">X</button>
+          {{task.name}}
+        </div>
+        <div class="task-description">
+          {{task.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="drag-column">
+      <div class="section-heading">Ukończone</div>
+      <div [id] = "TaskStatusEnum.Done" cdkDropList #reviewList="cdkDropList" [cdkDropListData]="taskService.GetDoneTasks()" [cdkDropListConnectedTo]="[doneList,pendingList]"
+        class="item-list" (cdkDropListDropped)="drop($event)">
+        <div class="task-card" *ngFor="let task of taskService.GetDoneTasks()" cdkDrag>
+          <div class="task-title">
+            <button mat-raised-button class ="task-delete-button" color ="primary" (click)="taskService.deleteTask(task.id)">X</button>
+            {{task.name}}
+          </div>
+          <div class="task-description">
+            {{task.description}}
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+

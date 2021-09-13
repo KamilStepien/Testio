@@ -1,0 +1,27 @@
+<form class="form-card" [formGroup]="addTaskFrom" (ngSubmit)="closeDialog()">
+    <div class="card-header">
+      <div class="header-title">
+        Dodaj zadanie
+      </div>
+    </div>
+    <div class="card-body">
+      <mat-form-field class="body-row">
+        <mat-label>Nazwa</mat-label>
+        <input matInput #input type="text" formControlName="nameTask">
+        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+      </mat-form-field>
+      <div class="body-row">
+        <mat-form-field class="body-row">
+          <mat-label>Opis</mat-label>
+          <textarea  matInput #input1 type="text" formControlName="descriptionTask"></textarea>
+          <mat-hint align="end">{{input1.value?.length || 0}}/200</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="body-row">
+        <div class="button-box ">
+          <button mat-raised-button  color="primary" type="submit" class="btn btn-primary mb-1" [disabled]="addTaskFrom.invalid">Dodaj</button>
+          <button mat-raised-button mat-dialog-close type="button" class="btn btn-secondary mb-1">Zamknij</button>
+        </div>
+      </div>
+    </div>
+</form>
