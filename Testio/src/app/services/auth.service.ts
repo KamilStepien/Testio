@@ -18,17 +18,11 @@ export class AuthService {
     this._responseMessage = null;
    }
 
-  isResponseMessage():boolean
-  {
-    return this._responseMessage != null;
-  }
+  public IsResponseMessage = ():boolean => this._responseMessage != null;
+  public IsLogged = ():boolean => this._isLogged;
 
-  isLogged():boolean
-  {
-    return this._isLogged;
-  }
 
-  responseMessage():string
+  public ResponseMessage():string
   {
     setTimeout(()=> this._responseMessage = null,5000);
     return  this._responseMessage;
