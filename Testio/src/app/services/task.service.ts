@@ -26,7 +26,6 @@ export class TaskService {
 
   public editStatusTask(model:TaskEditStatusModel)
   {
-    console.log(model);
     this.http.put<TaksModel>("https://localhost:5001/api/task/editStatus", model).subscribe(
       response =>
       {
