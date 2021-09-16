@@ -1,26 +1,32 @@
 .notification-card-inforamtion {
-  background-color: rgb(160, 245, 110);
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
 }
 .notification-card-warning {
-  background-color: rgb(240, 141, 27) ;
+  color: #664d03;
+  background-color: #fff3cd;
+  border-color: #ffecb5;
 }
 .notification-card-error {
-  background-color: rgb(245, 35, 35);
-  color: rgb(255,255,255);
-
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
 }
+
 
 .notification-card {
   min-width: 200px;
   max-width: 500px;
   width: fit-content;
   min-height: 50px;
-  border-radius: 10px;
+  border: 1px solid transparent;
+  border-radius: .25rem;
   padding: 5px 50px 5px 10px;
-  margin: 10px;
+  margin: 5px 0;
   opacity: 1;
-  border: solid 1px rgb(155, 152, 152);
   z-index: 100;
+  font-size: 13px;
   position: relative;
 
   .notification-button-remove
@@ -45,12 +51,13 @@
   }
 
   .notification-title {
-    font-size: 15px;
+    font-size: 1em;
     font-weight: 500;
   }
 
   .notification-description {
-    font-size: 0.9em;
+    font-size: 0.8em;
     word-wrap: break-word;
+    padding: 0 0 0 2px;
   }
 }

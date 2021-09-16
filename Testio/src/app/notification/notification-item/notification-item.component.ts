@@ -55,7 +55,7 @@ export class NotificationItemComponent {
   {
      if(this._notification.interval)
      {
-      setTimeout(() => this.deleteNotification() , this._notification.interval);
+      // setTimeout(() => this.deleteNotification() , this._notification.interval);
      }
   }
 
