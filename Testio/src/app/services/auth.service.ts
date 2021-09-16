@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginModel } from '../models/auth/login.model';
 import { RegisterModel } from '../models/auth/register.model';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private _isLogged:boolean ;
   private _responseMessage:string;
 
-  constructor(private router: Router, private http: HttpClient, ) {
+  constructor(private router: Router, private http: HttpClient, private notiService:NotificationService ) {
     this._isLogged = false;
     this._responseMessage = null;
    }
@@ -34,12 +35,14 @@ export class AuthService {
     .subscribe(response => {
       const token = (<any> response).token;
       localStorage.setItem("jwt", token);
-      this._isLogged = false;
+      this._isLogged = true;
       this.router.navigate(["/"]);
+      this.notiService.notiInformation("Logowanie", "Jesteś zalogowany");
     },
     err =>
     {
-      this._isLogged = true;
+      this.notiService.notiError("Logowanie","Nieprawidłowe hasło lub nazwa użytkownika",3000);
+      this._isLogged = false;
     })
   }
 
@@ -48,10 +51,12 @@ export class AuthService {
     this.http.post("https://localhost:5001/api/auth/register",  user)
     .subscribe(respons => {
       this._responseMessage = "Konto zostało utworzone poprawanie";
+      this.notiService.notiInformation("Rejestracja","Konto zostało utworzone poprawanie");
       setTimeout(()=> this.router.navigate(['/login']),5000);
     },
     err =>
     {
+      this.notiService.notiError("Rejestracja","Wystąpił błąd podczas tworzenia konta");
       this._responseMessage = "Wystąpił błąd podczas tworzenia konta";
     })
   }
