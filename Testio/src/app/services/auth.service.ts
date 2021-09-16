@@ -39,7 +39,7 @@ export class AuthService {
   {
     this.http.post("https://localhost:5001/api/auth/register",  user)
     .subscribe(respons => {
-      this.notificationService.notiInformation("Rejestracja","Konto zostało utworzone poprawanie. Witaj na pokładzie " + user.login, 300);
+      this.notificationService.notiInformation("Rejestracja","Konto zostało utworzone poprawanie. Witaj na pokładzie " + user.login, 3000);
       setTimeout(()=> this.router.navigate(['/login']),5000);
     },
     err =>
