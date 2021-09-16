@@ -17,9 +17,9 @@ import {MatInputModule} from '@angular/material/input';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogAddTaskComponent } from './task-module/dialog-add-task/dialog-add-task.component';
-
 import { NotificationService } from './services/notification.service';
 import { NotificationListComponent } from './notification/notificationList.component';
+import { NotificationItemComponent } from './notification/notification-item/notification-item.component';
 import {MatIconModule} from '@angular/material/icon';
 export function tokenGetter()
 {
@@ -33,7 +33,8 @@ export function tokenGetter()
     HomeComponent,
     RegisterComponent,
     TaskModuleComponent,
-    DialogAddTaskComponent
+    DialogAddTaskComponent,
+    NotificationListComponent,
     NotificationItemComponent
   ],
   imports: [
@@ -56,7 +57,6 @@ export function tokenGetter()
     }),
     BrowserAnimationsModule
   ],
-  providers: [AuthService],
   providers: [AuthService,NotificationService],
   bootstrap: [AppComponent]
 })
