@@ -13,7 +13,8 @@ import { NotificationLevelEnum } from 'src/app/models/notification/notificationE
         opacity: 1
       })),
       state('hide',   style({
-        opacity: 0
+        opacity: 0,
+        transform: "translateX(100%)"
       })),
       transition('show => hide', animate('600ms ease-out')),
       transition('hide => show', animate('1000ms ease-in'))
