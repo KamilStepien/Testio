@@ -18,6 +18,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogAddTaskComponent } from './task-module/dialog-add-task/dialog-add-task.component';
 
+import { NotificationListComponent } from './notification/notificationList.component';
+import {MatIconModule} from '@angular/material/icon';
 export function tokenGetter()
 {
   return localStorage.getItem("jwt");
@@ -31,6 +33,7 @@ export function tokenGetter()
     RegisterComponent,
     TaskModuleComponent,
     DialogAddTaskComponent
+    NotificationItemComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ export function tokenGetter()
     MatInputModule,
     DragDropModule,
     MatDialogModule,
+    MatIconModule,
     JwtModule.forRoot({
       config:
       {

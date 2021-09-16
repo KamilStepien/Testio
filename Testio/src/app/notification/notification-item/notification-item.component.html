@@ -1,0 +1,16 @@
+
+<div [@popOverState]="stateName"  (@popOverState.done)="animEnd($event)"
+class="notification-card" [ngClass]="{'notification-card-inforamtion': Level == NotificationLevelEnum.Information,
+'notification-card-warning': Level == NotificationLevelEnum.Warning,
+ 'notification-card-error': Level == NotificationLevelEnum.Error}">
+  <button mat-icon-button aria-label="X" class="notification-button-remove" (click)="deleteNotification()">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <div class="notification-title">
+   {{(Title)}}
+ </div>
+ <div class="notification-description">
+   {{Description}}
+ </div>
+</div>
+
