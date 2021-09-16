@@ -9,7 +9,7 @@ import { NotificationItemComponent } from './notification-item/notification-item
   styleUrls: ['./notificationList.component.scss']
 })
 export class NotificationListComponent{
-  @ViewChild('appenHere', {static : false, read : ViewContainerRef}) target: ViewContainerRef;
+  @ViewChild('notificatioList', {static : false, read : ViewContainerRef}) target: ViewContainerRef;
 
   constructor(public notiServics:NotificationService,private resolver: ComponentFactoryResolver) {
 
