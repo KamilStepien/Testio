@@ -1,0 +1,56 @@
+.notification-card-inforamtion {
+  background-color: rgb(160, 245, 110);
+}
+.notification-card-warning {
+  background-color: rgb(240, 141, 27) ;
+}
+.notification-card-error {
+  background-color: rgb(245, 35, 35);
+  color: rgb(255,255,255);
+
+}
+
+.notification-card {
+  min-width: 200px;
+  max-width: 500px;
+  width: fit-content;
+  min-height: 50px;
+  border-radius: 10px;
+  padding: 5px 50px 5px 10px;
+  margin: 10px;
+  opacity: 1;
+  border: solid 1px rgb(155, 152, 152);
+  z-index: 100;
+  position: relative;
+
+  .notification-button-remove
+  {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    width: 30px;
+    height: 25px;
+    line-height: 25px;
+    mat-icon
+    {
+      transform: scale(0.8);
+      opacity: 0.5;
+      transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    mat-icon:hover
+    {
+      opacity: 1;
+      transform: scale(0.85);
+    }
+  }
+
+  .notification-title {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .notification-description {
+    font-size: 0.9em;
+    word-wrap: break-word;
+  }
+}
