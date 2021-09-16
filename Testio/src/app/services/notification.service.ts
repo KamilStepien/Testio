@@ -1,21 +1,61 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { notificationModel } from '../models/notification/notification.model';
+import {NotificationModel } from '../models/notification/notification.model';
+import { NotificationLevelEnum } from '../models/notification/notificationEnums.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
 
-  public subject: Subject<string>
+  public notifications$: Subject<NotificationModel>
 
   constructor() {
-    this.subject = new Subject<string>();
+    this.notifications$ = new Subject<NotificationModel>();
   }
 
-  public addNotification(message:string)
+  private noti(model:NotificationModel)
   {
-    this.subject.next(message);
+    this.notifications$.next(model);
+  }
+
+  public notiInformation(title: string, description:string, interval?:number)
+  {
+    let model: NotificationModel =
+    {
+      title: title,
+      description : description,
+      level: NotificationLevelEnum.Information,
+      interval: interval
+    }
+
+    this.noti(model);
+  }
+
+  public notiWarning(title: string, description:string, interval?:number)
+  {
+    let model: NotificationModel =
+    {
+      title: title,
+      description : description,
+      level: NotificationLevelEnum.Warning,
+      interval: interval
+    }
+
+    this.noti(model);
+  }
+
+  public notiError(title: string, description:string, interval?:number)
+  {
+    let model: NotificationModel =
+    {
+      title: title,
+      description : description,
+      level: NotificationLevelEnum.Error,
+      interval: interval
+    }
+
+    this.noti(model);
   }
 
 }
