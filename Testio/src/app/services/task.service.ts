@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TaksModel, TaskAddModel, TaskEditStatusModel } from '../models/task/task.model';
 import { TaskStatusEnum } from '../models/task/taskEnums';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class TaskService {
   private _inProgressTask: TaksModel[];
   private _createTask: TaksModel[];
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private notificationService:NotificationService) {
     this.refreshTasks()
    }
 
@@ -71,8 +72,7 @@ export class TaskService {
         },
       err =>
       {
-        console.log(err);
-        //TODO when notification module will implemented
+        this.notificationService.notiError("Zadania",err.error,3000);
       }
     )
   }
@@ -82,13 +82,12 @@ export class TaskService {
     this.http.post<TaksModel>("https://localhost:5001/api/task/add", model).subscribe(
       response =>
       {
+        this.notificationService.notiInformation("Zadania","Utworzenie zadania " + model.name,3000);
         this.refreshTasks();
       },
       err =>
       {
-        console.log(err);
-        //TODO when notification module will implemented
-      }
+        this.notificationService.notiError("Zadania",err.error,3000);      }
     )
   }
 
@@ -101,9 +100,7 @@ export class TaskService {
       },
       err =>
       {
-        console.log(err);
-        //TODO when notification module will implemented
-      })
+        this.notificationService.notiError("Zadania",err.error,3000);      })
   }
 
 }
