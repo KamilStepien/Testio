@@ -23,7 +23,8 @@ export class DialogAddTaskComponent{
     }
   )
 
-  closeDialog() {
+  addTask() {
+
     let model:TaskAddModel =
     {
       name : this.addTaskFrom.value.nameTask,

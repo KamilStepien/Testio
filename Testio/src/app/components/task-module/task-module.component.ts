@@ -41,8 +41,12 @@ export class TaskModuleComponent {
   openAddTaskDialog() {
     const dialogRef = this.dialog.open(DialogAddTaskComponent);
 
+
     dialogRef.afterClosed().subscribe(result => {
-      this.taskService.addTask(result);
+      if(result)
+      {
+        this.taskService.addTask(result);
+      }
     });
   }
 
