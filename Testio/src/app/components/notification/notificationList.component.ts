@@ -1,6 +1,6 @@
 import { Component, ComponentFactoryResolver, ComponentRef, ElementRef, ViewChild, ViewContainerRef} from '@angular/core';
-import { NotificationModel } from '../models/notification/notification.model';
-import { NotificationService } from '../services/notification.service';
+import { NotificationModel } from 'src/app/models/notification/notification.model';
+import { NotificationService } from 'src/app/services/notification.service';
 import { NotificationItemComponent } from './notification-item/notification-item.component';
 
 @Component({
