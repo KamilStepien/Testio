@@ -21,6 +21,7 @@ import { NotificationService } from './services/notification.service';
 import { NotificationListComponent } from './notification/notificationList.component';
 import { NotificationItemComponent } from './notification/notification-item/notification-item.component';
 import {MatIconModule} from '@angular/material/icon';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 export function tokenGetter()
 {
   return localStorage.getItem("jwt");
@@ -36,6 +37,7 @@ export function tokenGetter()
     DialogAddTaskComponent,
     NotificationListComponent,
     NotificationItemComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
