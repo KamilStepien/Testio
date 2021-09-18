@@ -21,6 +21,7 @@ import { NotificationService } from './services/notification.service';
 import { NotificationListComponent } from './notification/notificationList.component';
 import { NotificationItemComponent } from './notification/notification-item/notification-item.component';
 import {MatIconModule} from '@angular/material/icon';
+import { CustomerComponent } from './customer/customer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 export function tokenGetter()
 {
@@ -36,7 +37,8 @@ export function tokenGetter()
     TaskModuleComponent,
     DialogAddTaskComponent,
     NotificationListComponent,
-    NotificationItemComponent
+    NotificationItemComponent,
+    CustomerComponent,
     PageNotFoundComponent
   ],
   imports: [
