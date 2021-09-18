@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TaskService } from '../services/task.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
-import { TaskStatusEnum } from '../models/task/taskEnums';
-import { TaskEditStatusModel } from '../models/task/task.model';
 import {MatDialog} from '@angular/material/dialog';
 import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
+import { TaskService } from 'src/app/services/task.service';
+import { TaskStatusEnum } from 'src/app/models/task/taskEnums';
+import { TaskEditStatusModel } from 'src/app/models/task/task.model';
 
 
 @Component({

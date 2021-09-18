@@ -7,13 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
-import { TaskModuleComponent } from './task-module/task-module.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogAddTaskComponent } from './task-module/dialog-add-task/dialog-add-task.component';
 import { NotificationService } from './services/notification.service';
 import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './components/home/home.component';
@@ -23,6 +21,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { RegisterComponent } from './components/register/register.component';
 import { NotificationListComponent } from './components/notification/notificationList.component';
 import { NotificationItemComponent } from './components/notification/notification-item/notification-item.component';
+import { DialogAddTaskComponent } from './components/task-module/dialog-add-task/dialog-add-task.component';
+import { TaskModuleComponent } from './components/task-module/task-module.component';
 
 export function tokenGetter()
 {

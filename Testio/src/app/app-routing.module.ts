@@ -5,8 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TaskModuleComponent } from './components/task-module/task-module.component';
 import { AuthGuard } from './guard/auth.guard';
-import { TaskModuleComponent } from './task-module/task-module.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
