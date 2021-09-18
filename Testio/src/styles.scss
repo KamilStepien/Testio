@@ -3,9 +3,19 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+ .mat-dialog-container {
+  padding: 0 !important;
+}
+
 
 .form-card
 {
+
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
   .card-header
   {
     text-align: center;
@@ -32,6 +42,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       }
       .button-box
       {
+        margin-top: 1rem;
         display: flex;
         justify-content: center;
         button

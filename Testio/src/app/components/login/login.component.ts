@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
-import { LoginModel } from '../models/auth/login.model';
+import { LoginModel } from 'src/app/models/auth/login.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({

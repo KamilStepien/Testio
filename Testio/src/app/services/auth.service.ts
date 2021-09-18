@@ -25,7 +25,7 @@ export class AuthService {
       const token = (<any> response).token;
       localStorage.setItem("jwt", token);
       this._isLogged = true;
-      this.router.navigate(["/"]);
+      this.router.navigate(["/dashboard"]);
     },
     err =>
     {

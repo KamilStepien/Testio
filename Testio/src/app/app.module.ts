@@ -5,22 +5,25 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
-import { RegisterComponent } from './register/register.component';
-import { TaskModuleComponent } from './task-module/task-module.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogAddTaskComponent } from './task-module/dialog-add-task/dialog-add-task.component';
 import { NotificationService } from './services/notification.service';
-import { NotificationListComponent } from './notification/notificationList.component';
-import { NotificationItemComponent } from './notification/notification-item/notification-item.component';
 import {MatIconModule} from '@angular/material/icon';
+import { HomeComponent } from './components/home/home.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RegisterComponent } from './components/register/register.component';
+import { NotificationListComponent } from './components/notification/notificationList.component';
+import { NotificationItemComponent } from './components/notification/notification-item/notification-item.component';
+import { DialogAddTaskComponent } from './components/task-module/dialog-add-task/dialog-add-task.component';
+import { TaskModuleComponent } from './components/task-module/task-module.component';
+
 export function tokenGetter()
 {
   return localStorage.getItem("jwt");
@@ -35,7 +38,9 @@ export function tokenGetter()
     TaskModuleComponent,
     DialogAddTaskComponent,
     NotificationListComponent,
-    NotificationItemComponent
+    NotificationItemComponent,
+    CustomerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

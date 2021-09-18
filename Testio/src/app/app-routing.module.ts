@@ -1,14 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerComponent } from './components/customer/customer.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { RegisterComponent } from './components/register/register.component';
+import { TaskModuleComponent } from './components/task-module/task-module.component';
 import { AuthGuard } from './guard/auth.guard';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]}
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'dashboard',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'task',
+        component: TaskModuleComponent,
+      },
+      {
+        path: 'customers',
+        component: CustomerComponent,
+      },
+    ],
+  },
+  {path: "**" , component: PageNotFoundComponent}
 ];
 
 @NgModule({
