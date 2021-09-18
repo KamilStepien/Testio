@@ -1,0 +1,17 @@
+<div class="header">
+  <p>Jesteś zalogowany</p>
+  <button type="submit" mat-raised-button  (click) = "auth.logOut()">Wyloguj się</button>
+</div>
+<div class="menu">
+  <div class="item">
+    <button type="submit" mat-raised-button  routerLink = "task" >Taski</button>
+  </div>
+  <div class="item">
+    <button type="submit" mat-raised-button  routerLink = "customers" >Użytkowanicy</button>
+  </div>
+</div>
+<section>
+  <router-outlet></router-outlet>
+</section>
+
+
